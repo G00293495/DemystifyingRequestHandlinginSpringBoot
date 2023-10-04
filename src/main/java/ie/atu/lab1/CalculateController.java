@@ -1,14 +1,15 @@
 package ie.atu.lab1;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CalculateController {
 
-    @GetMapping("/calculate")
-    public int Calculate(@RequestParam int num1, @RequestParam int num2, @RequestParam String operation) {
+    @GetMapping("/calculate/{num1}/{num2}/{operation}")
+    public int Calculate(@PathVariable int num1, @PathVariable int num2, @PathVariable String operation) {
        switch (operation) {
            case ("add"):
                return num1 + num2;
